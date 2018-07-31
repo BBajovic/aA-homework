@@ -30,6 +30,28 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
+    stones = cups[start_pos]
+    cups[start_pos] = []
+
+    index = start_pos
+    until stones.empty?
+      index += 1
+      if index > 13
+        index = 0
+      end
+
+      if index ==  6
+        cups[index] << stones.pop if current_player_name == @name1
+      elsif index == 13
+        cups[index] << stones.pop if current_player_name == @name2
+      else
+        cups[index] << stones.pop
+      end
+    end
+
+
+
+    render
   end
 
   def next_turn(ending_cup_idx)
