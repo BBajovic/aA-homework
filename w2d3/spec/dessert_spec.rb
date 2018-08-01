@@ -23,11 +23,16 @@ describe Dessert do
       expect(flan.ingredients).to be_empty
     end
 
-    it "raises an argument error when given a non-integer quantity"
+    it "raises an argument error when given a non-integer quantity" do
+      expect{ Dessert.new("cake", "lots", chef)}.to raise_error(ArgumentError)
+    end
   end
 
   describe "#add_ingredient" do
-    it "adds an ingredient to the ingredients array"
+    it "adds an ingredient to the ingredients array" do
+      flan.add_ingredient("eggs")
+      expect(flan.ingredients).to include("eggs")
+    end
   end
 
   describe "#mix!" do
