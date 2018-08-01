@@ -36,7 +36,18 @@ describe Dessert do
   end
 
   describe "#mix!" do
-    it "shuffles the ingredient array"
+    it "shuffles the ingredient array" do
+      ingredients = ["eggs", "sugar", "milk", "vanilla"]
+
+      ingredients.each do |ingredient|
+        flan.add_ingredient(ingredient)
+      end
+
+      expect(flan.ingredients).to eq(ingredients)
+      flan.mix!
+      expect(flan.ingredients).not_to eq(ingredients)
+      expect(flan.ingredients.sort).to eq(ingredients.sort)
+    end
   end
 
   describe "#eat" do
