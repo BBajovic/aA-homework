@@ -51,13 +51,21 @@ describe Dessert do
   end
 
   describe "#eat" do
-    it "subtracts an amount from the quantity"
+    it "subtracts an amount from the quantity" do
+      expect(flan.eat(10)).to eq(40)
+    end
 
-    it "raises an error if the amount is greater than the quantity"
+    it "raises an error if the amount is greater than the quantity" do
+      expect {flan.eat(60)}.to raise_error("not enough left!")
+    end
   end
 
   describe "#serve" do
-    it "contains the titleized version of the chef's name"
+    it "contains the titleized version of the chef's name" do
+      allow(chef).to receive(:titleize).and_return("Chef Tony")
+      expect(flan.serve).to eq("Chef Tony has made 50 flans!")
+
+    end
   end
 
   describe "#make_more" do
