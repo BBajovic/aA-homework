@@ -12,7 +12,7 @@ class Map
       array.push([key, value])
     end
   end
-
+  
   def get(key)
     array.each do |pair|
       return pair.last if pair.first == key
