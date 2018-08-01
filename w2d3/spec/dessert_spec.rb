@@ -12,14 +12,16 @@ describe Dessert do
 
   describe "#initialize" do
     it "sets a type" do
-      # expect(flan.type).to eq("flan")
+      expect(flan.type).to eq("flan")
     end
 
     it "sets a quantity" do
-      # expect(flan.quantity).to eq(50)
+      expect(flan.quantity).to eq(50)
     end
 
-    it "starts ingredients as an empty array"
+    it "starts ingredients as an empty array" do
+      expect(flan.ingredients).to be_empty
+    end
 
     it "raises an argument error when given a non-integer quantity"
   end
